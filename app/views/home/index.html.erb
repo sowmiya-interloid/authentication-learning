@@ -1,0 +1,21 @@
+<h1>Employee Portal</h1>
+
+<% if user_signed_in? %>
+
+  <h2>Welcome, <%= current_user.email %></h2>
+
+  <p>You are successfully logged in!</p>
+
+  <%= button_to "Logout",
+      destroy_user_session_path,
+      method: :delete %>
+
+<% else %>
+
+  <p>Welcome to our Employee Management Portal</p>
+
+  <%= link_to "Sign Up", new_user_registration_path %>
+
+  <%= link_to "Login", new_user_session_path %>
+
+<% end %>
